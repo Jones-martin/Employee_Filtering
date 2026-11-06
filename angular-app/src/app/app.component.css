@@ -1,0 +1,14 @@
+:host { display: block; min-height: 100vh; background: #f8fafc; color: #0f172a; }
+main { max-width: 1280px; margin: auto; padding: 28px; font-family: Arial, sans-serif; }
+header { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; padding: 24px 30px; border-radius: 12px; }
+h1 { margin: 0; }
+header p { margin-bottom: 0; opacity: .9; }
+.controls, .summary, .pagination { display: flex; gap: 12px; align-items: center; margin: 20px 0; }
+.controls input, .controls select, button { padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; background: white; }
+.controls input { flex: 1; min-width: 220px; }
+button { cursor: pointer; background: #1e3a8a; color: white; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.summary { justify-content: space-between; }
+.pagination { justify-content: center; }
+.message, .error { padding: 16px; background: white; border-radius: 6px; }
+.error { color: #b91c1c; }
