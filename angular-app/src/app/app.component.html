@@ -1,0 +1,46 @@
+<main>
+  <header>
+    <h1>Employee Reporting Dashboard</h1>
+
+  </header>
+
+  <section class="controls">
+    <input [(ngModel)]="search" (keyup.enter)="page = 1; loadEmployees()" placeholder="Search employees">
+    <select [(ngModel)]="department" (change)="page = 1; loadEmployees()">
+      <option value="ALL">All departments</option>
+      <option value="IT">IT</option>
+      <option value="Finance">Finance</option>
+      <option value="HR">HR</option>
+      <option value="Engineering">Engineering</option>
+      <option value="Operations">Operations</option>
+    </select>
+    <select [(ngModel)]="sortBy" (change)="page = 1; loadEmployees()">
+      <option value="salary">Salary</option>
+      <option value="name">Name</option>
+      <option value="joinDate">Joining date</option>
+    </select>
+    <select [(ngModel)]="order" (change)="page = 1; loadEmployees()">
+      <option value="desc">Descending</option>
+      <option value="asc">Ascending</option>
+    </select>
+    <input type="number" [(ngModel)]="minSalary" (keyup.enter)="page = 1; loadEmployees()" placeholder="Minimum salary">
+    <input type="number" [(ngModel)]="maxSalary" (keyup.enter)="page = 1; loadEmployees()" placeholder="Maximum salary">
+    <button type="button" (click)="page = 1; loadEmployees()">Apply filters</button>
+    <button type="button" (click)="reset()">Reset</button>
+  </section>
+
+  @if (loading) { <p class="message">Loading employees...</p> }
+  @if (error) { <p class="error">{{ error }}</p> }
+  @if (response) {
+    <section class="summary">
+      <strong>{{ response.meta.total }}</strong> employees found
+      <span>{{ selectedEmployees.length }} selected</span>
+    </section>
+    <app-employee-table [employees]="response.data" (selectionChange)="selectEmployees($event)" />
+    <nav class="pagination">
+      <button type="button" [disabled]="page <= 1" (click)="changePage(-1)">Previous</button>
+      <span>Page {{ response.meta.page }} of {{ response.meta.totalPages }}</span>
+      <button type="button" [disabled]="page >= response.meta.totalPages" (click)="changePage(1)">Next</button>
+    </nav>
+  }
+</main>
