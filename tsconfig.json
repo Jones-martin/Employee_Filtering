@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "backend_api.ts",
+    "formatting_pipes.ts",
+    "filter_sort_pipes.ts",
+    "chaining_reporting.ts",
+    "reporting_dashboard.ts",
+    "run_all_modules.ts",
+    "start_server.ts"
+  ]
+}
