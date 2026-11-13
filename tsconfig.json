@@ -17,8 +17,6 @@
     "formatting_pipes.ts",
     "filter_sort_pipes.ts",
     "chaining_reporting.ts",
-    "reporting_dashboard.ts",
-    "run_all_modules.ts",
     "start_server.ts"
   ]
 }
